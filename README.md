@@ -61,6 +61,11 @@ Have nearly the same structure and the same methods. The results they return are
 - 'morph': list of morphological analysis
 - 'doc': the original doc object of the library
 
+## Speed
+With used RTX A4000 GPU 8Go, apply the nlp pipeline on  a 10 millions words corpus took:
+- ~70 minutes for Stanza
+- ~ xx minutes for Spacy trf
+
 ## Embeddings
 
 The embeddings can be buil with the following models: Word2vec, Fastext, Doc2vec, LDA, LSA, ELDA, and HDP
