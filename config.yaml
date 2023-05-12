@@ -1,0 +1,66 @@
+# data configutation
+data :
+  source_folder : "/home/robin/Data/Etude_1000"
+  source_filename : "clean_13_november_data_v3.h5"
+
+outputs :   
+  outputs_folder : "/home/robin/Code_repo/nlp_pipeline/outputs"
+  models_folder : "models"
+  nlp_folder : "nlp"
+
+
+# Pipeline configuration
+
+pipeline :
+  method  : 'stanza'
+  col : 'part_1_1'
+  spacy_trf :
+    model_name : 'fr_dep_news_trf'
+    use_gpu : True
+  spacy :
+    model_name : 'fr_core_news_lg' 
+    use_gpu : False 
+  stanza :
+    use_gpu : True
+    lang : "fr"
+  stanzaCore :
+    use_gpu : False
+  transformers :
+    model_name : 'gilf/french-camembert-postag-model'
+
+
+embeddings :
+  model_name : "part_1_1"
+  unit : "token" #lemma; pos, morph
+  model_type : "doc2vec"
+  no_below : 1
+  no_above : 0.8
+  doc2vec :
+    vector_size : 300
+    min_count : 2
+    epochs : 10
+  fasttext :
+    vector_size : 300
+    window : 5
+    min_count : 2
+    epochs : 20
+    workers : 15
+  word2vec :
+    vector_size : 100
+    window : 5
+    min_count : 2
+    epochs : 10
+    workers : 15
+  lsi :
+    num_topics : 30
+    onepass : False
+  lda :
+    num_topics : 30
+    passes : 10
+    random_state : 42
+  elda :
+    num_topics : 100
+    num_models : 3
+    random_state : 42
+  hdp :
+    random_state : 42
