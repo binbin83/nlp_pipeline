@@ -1,0 +1,8 @@
+setuptools
+wheel
+'spacy[cuda-autodetect,transformers,lookups]'
+stanza
+pandas
+git+https://github.com/ClaudeCoulombe/FrenchLefffLemmatizer.git
+gensim
+tables

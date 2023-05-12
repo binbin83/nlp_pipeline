@@ -1,0 +1,9 @@
+setuptools
+wheel
+spacy
+transformers
+stanza
+pandas
+git+https://github.com/ClaudeCoulombe/FrenchLefffLemmatizer.git
+gensim
+tables
