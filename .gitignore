@@ -6,6 +6,15 @@ __pycache__/
 # data excplicitly ignored by git
 .csv
 .model
+.pkl
+.json
+.h5
+.hdf5
+.hdf5.tmp
+outputs/nlp/stanza/*
+outputs/nlp/spacy/*
+outputs/models/*
+outputs/nlp/*
 
 
 # C extensions
