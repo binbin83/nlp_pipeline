@@ -1,8 +1,9 @@
 setuptools
 wheel
-'spacy[cuda-autodetect,transformers,lookups]'
+spacy[cuda117,transformers,lookups]
 stanza
 pandas
 git+https://github.com/ClaudeCoulombe/FrenchLefffLemmatizer.git
 gensim
 tables
+https://github.com/explosion/spacy-models/releases/download/fr_core_news_lg-3.5.0/fr_core_news_lg-3.5.0-py3-none-any.whl

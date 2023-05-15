@@ -65,15 +65,21 @@ class SpacyNlpPipeline():
         except Exception as e :
             self.logger_.warning(f'Extraction failed because of {e}')
 
+        
+        
+        if self.model_name == 'fr_dep_news_trf' and self.use_gpu == True :
+            doc._.trf_data = None
+
+        if self.model_name == 'fr_core_news_lg'  :
+            doc = None
+            # we should apply a doc.todisk method to save the doc on disk and then load it again properly
+        
         result = {"token": tokens,
                 'lemma': lemma,
                 'pos': pos,
                 'xpos':xpos,
                 'morph':morphs,
                 'doc':doc}
-        
-        if self.model_name == 'fr_dep_news_trf' and self.use_gpu == True :
-            doc._.trf_data = None
 
 
         return result
