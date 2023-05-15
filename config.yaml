@@ -12,7 +12,7 @@ outputs :
 # Pipeline configuration
 
 pipeline :
-  method  : 'stanza'
+  method  : 'spacy'
   col : 'part_1_1'
   spacy_trf :
     model_name : 'fr_dep_news_trf'
