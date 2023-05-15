@@ -61,11 +61,13 @@ Have nearly the same structure and the same methods. The results they return are
 - 'morph': list of morphological analysis
 - 'doc': the original doc object of the library
 
+
 ## Speed
 With used RTX A4000 GPU 8Go, apply the nlp pipeline on  a 10 millions words corpus took:
 - ~70 minutes for Stanza (GPU)
 - ~20 minutes for Spacy trf (GPU)
 - ~14 minutes for Spacy lg (11th Gen Intel® Core™ i7-11850H @ 2.50GHz × 16)
+
 
 ## Embeddings
 
