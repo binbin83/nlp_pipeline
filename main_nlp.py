@@ -62,18 +62,28 @@ if __name__=="__main__":
     for i in range(len(data)) :
         line = data.iloc[i]
         code = line['code']
-        interaction_list = line[target_col]
-        if not os.path.exists(os.path.join(spe_nlp_folder,code+'_'+target_col+'.json')) :
-            for interaction in interaction_list :
-                result = pipeline.nlp(interaction['text'])
-                interaction.update(result)
-            logger.info(f"{code} analysis is terminated")
-            # saving 
-            df = pd.DataFrame(interaction_list)
-            file_name = os.path.join(spe_nlp_folder,code+'_'+target_col+'.pkl')
+   
+        if type(line[target_col])!=list :
+            text = line[target_col]
+            result = pipeline.nlp(text)
+            df = pd.DataFrame([result])
             df.to_pickle(file_name)
             logger.info(f'{file_name} Saved')
             logger.info(f'Free memory on GPU is: {compute_gpu_free_memory()}')
+
+        else :
+            interaction_list = line[target_col]
+            if not os.path.exists(os.path.join(spe_nlp_folder,code+'_'+target_col+'.json')) :
+                for interaction in interaction_list :
+                    result = pipeline.nlp(interaction['text'])
+                    interaction.update(result)
+                logger.info(f"{code} analysis is terminated")
+                # saving 
+                df = pd.DataFrame(interaction_list)
+                file_name = os.path.join(spe_nlp_folder,code+'_'+target_col+'.pkl')
+                df.to_pickle(file_name)
+                logger.info(f'{file_name} Saved')
+                logger.info(f'Free memory on GPU is: {compute_gpu_free_memory()}')
 
     t_end = time.time()
     d = round(t_end-t_start,2)/60
